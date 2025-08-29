@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formaciones Premium - Transforma tu Conocimiento</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav">
+                <div class="logo">
+                    <h2><i class="fas fa-book"></i> Formaciones Premium</h2>
+                </div>
+                <div class="cart-container">
+                    <button class="cart-btn" id="cartBtn">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Transforma tu Conocimiento con Nuestras Formaciones Premium</h1>
+                <p class="hero-subtitle">Descubre las mejores estrategias en inteligencia artificial y finanzas personales. Contenido exclusivo por solo €4.99 cada una.</p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">4</span>
+                        <span class="stat-label">Formaciones Exclusivas</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">€4.99</span>
+                        <span class="stat-label">Precio Especial</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Digital</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="container">
+            <h2 class="section-title">Nuestras Formaciones Premium</h2>
+            <div class="products-grid">
+                <!-- IA que Vende -->
+                <div class="product-card" data-product-id="ia-que-vende">
+                    <div class="product-image">
+                        <img src="ia-que-vende-portada.png" alt="IA que Vende">
+                        <div class="product-overlay">
+                            <span class="product-badge">Bestseller</span>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">IA que Vende</h3>
+                        <p class="product-description">Descubre cómo utilizar la inteligencia artificial para potenciar tus ventas y automatizar tu negocio de manera efectiva.</p>
+                        <div class="product-price">€4.99</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary buy-now-btn" data-product="ia-que-vende">
+                                <i class="fas fa-bolt"></i> Comprar Ahora
+                            </button>
+                            <button class="btn btn-secondary add-to-cart-btn" data-product="ia-que-vende">
+                                <i class="fas fa-shopping-cart"></i> Añadir al Carrito
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Aprende IA -->
+                <div class="product-card" data-product-id="aprende-ia">
+                    <div class="product-image">
+                        <img src="aprende-ia-portada.png" alt="Aprende IA">
+                        <div class="product-overlay">
+                            <span class="product-badge">Nuevo</span>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Aprende IA</h3>
+                        <p class="product-description">Una guía completa para dominar los fundamentos de la inteligencia artificial desde cero hasta nivel avanzado.</p>
+                        <div class="product-price">€4.99</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary buy-now-btn" data-product="aprende-ia">
+                                <i class="fas fa-bolt"></i> Comprar Ahora
+                            </button>
+                            <button class="btn btn-secondary add-to-cart-btn" data-product="aprende-ia">
+                                <i class="fas fa-shopping-cart"></i> Añadir al Carrito
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- El Arte del Dinero -->
+                <div class="product-card" data-product-id="arte-dinero">
+                    <div class="product-image">
+                        <img src="El arte del dinero web.png" alt="El Arte del Dinero">
+                        <div class="product-overlay">
+                            <span class="product-badge">Popular</span>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">El Arte del Dinero</h3>
+                        <p class="product-description">Aprende los secretos de la gestión financiera y las estrategias de inversión que utilizan los expertos.</p>
+                        <div class="product-price">€4.99</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary buy-now-btn" data-product="arte-dinero">
+                                <i class="fas fa-bolt"></i> Comprar Ahora
+                            </button>
+                            <button class="btn btn-secondary add-to-cart-btn" data-product="arte-dinero">
+                                <i class="fas fa-shopping-cart"></i> Añadir al Carrito
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Entrena tu Dinero -->
+                <div class="product-card" data-product-id="entrena-dinero">
+                    <div class="product-image">
+                        <img src="Portada web entrena tu dinero.png" alt="Entrena tu Dinero">
+                        <div class="product-overlay">
+                            <span class="product-badge">Recomendado</span>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Entrena tu Dinero</h3>
+                        <p class="product-description">Desarrolla hábitos financieros saludables y aprende a hacer crecer tu patrimonio de forma sostenible.</p>
+                        <div class="product-price">€4.99</div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary buy-now-btn" data-product="entrena-dinero">
+                                <i class="fas fa-bolt"></i> Comprar Ahora
+                            </button>
+                            <button class="btn btn-secondary add-to-cart-btn" data-product="entrena-dinero">
+                                <i class="fas fa-shopping-cart"></i> Añadir al Carrito
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">¿Por qué elegir nuestras Formaciones?</h2>
+            <div class="features-grid">
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-download"></i>
+                    </div>
+                    <h3>Descarga Instantánea</h3>
+                    <p>Acceso inmediato después del pago. No esperas, empiezas a aprender al instante.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Compatible con Todos los Dispositivos</h3>
+                    <p>Accede desde tu móvil, tablet u ordenador. Formato PDF optimizado para todos los dispositivos.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Contenido Premium</h3>
+                    <p>Estrategias probadas y conocimiento exclusivo de expertos en la materia.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Pago Seguro</h3>
+                    <p>Procesamiento seguro con Stripe. Tus datos están protegidos en todo momento.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Carrito de Compras</h3>
+            <button class="close-cart" id="closeCart">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be dynamically added here -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total: €<span id="cartTotal">0.00</span></span>
+            </div>
+            <button class="btn btn-primary cart-checkout-btn" id="checkoutBtn" disabled>
+                <i class="fas fa-credit-card"></i> Proceder al Pago
+            </button>
+        </div>
+    </div>
+
+    <!-- Payment Modal -->
+    <div class="modal" id="paymentModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Finalizar Compra</h3>
+                <button class="close-modal" id="closePaymentModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="order-summary">
+                    <h4>Resumen del Pedido</h4>
+                    <div id="orderItems"></div>
+                    <div class="order-total">
+                        <strong>Total: €<span id="orderTotal">0.00</span></strong>
+                    </div>
+                </div>
+                
+                <div class="payment-form">
+                    <h4>Información de Pago</h4>
+                    <form id="payment-form">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="card-element">Información de la Tarjeta</label>
+                            <div id="card-element">
+                                <!-- Stripe Elements will create form elements here -->
+                            </div>
+                            <div id="card-errors" role="alert"></div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary payment-btn" id="submit-payment">
+                            <i class="fas fa-lock"></i> Pagar de Forma Segura
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content success-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-check-circle"></i> ¡Compra Exitosa!</h3>
+            </div>
+            <div class="modal-body">
+                <p>Tu pago ha sido procesado correctamente. Recibirás un email con los enlaces de descarga en los próximos minutos.</p>
+                <button class="btn btn-primary" id="closeSuccessModal">Continuar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                                    <h4>Formaciones Premium</h4>
+                <p>Transformando conocimiento en resultados.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Soporte</h4>
+                    <p>Email: soporte@ebookspremium.com</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Política de Privacidad</h4>
+                    <p>Tus datos están seguros con nosotros.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Formaciones Premium. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 

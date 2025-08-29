@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo - Sistema de Descargas</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            padding: 20px;
+        }
+        .demo-container {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            max-width: 500px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .demo-title {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+        .demo-subtitle {
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.5;
+        }
+        .demo-btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin: 10px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .demo-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+        .demo-options {
+            display: grid;
+            gap: 15px;
+            margin-bottom: 2rem;
+        }
+        .option-group {
+            text-align: left;
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .option-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .option-description {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <h1 class="demo-title">🧪 Demo del Sistema</h1>
+        <p class="demo-subtitle">
+            Prueba el sistema completo de descargas. Puedes simular diferentes escenarios de compra.
+        </p>
+
+        <div class="demo-options">
+            <div class="option-group">
+                <div class="option-title">📚 Simular Compra de 1 Formación</div>
+                <div class="option-description">
+                    Simula la compra de una sola formación para probar la descarga individual
+                </div>
+                <button class="demo-btn" onclick="simulateSinglePurchase()">
+                    Probar 1 Formación
+                </button>
+            </div>
+
+            <div class="option-group">
+                <div class="option-title">🛒 Simular Carrito Completo</div>
+                <div class="option-description">
+                    Simula la compra de todas las formaciones para probar múltiples descargas
+                </div>
+                <button class="demo-btn" onclick="simulateFullCart()">
+                    Probar 4 Formaciones
+                </button>
+            </div>
+
+            <div class="option-group">
+                <div class="option-title">⚡ Ir Directo a Descargas</div>
+                <div class="option-description">
+                    Accede directamente a la página de descargas con productos demo
+                </div>
+                <a href="descarga.html?demo=true" class="demo-btn">
+                    Página de Descargas
+                </a>
+            </div>
+        </div>
+
+        <a href="index.html" class="back-link">
+            ← Volver a la Landing Page
+        </a>
+    </div>
+
+    <script>
+        // Simular compra de un solo producto
+        function simulateSinglePurchase() {
+            const singleProduct = [{ id: 'ia-que-vende' }];
+            redirectToDownloads(singleProduct);
+        }
+
+        // Simular compra de carrito completo
+        function simulateFullCart() {
+            const allProducts = [
+                { id: 'ia-que-vende' },
+                { id: 'aprende-ia' },
+                { id: 'arte-dinero' },
+                { id: 'entrena-dinero' }
+            ];
+            redirectToDownloads(allProducts);
+        }
+
+        // Redirigir a página de descargas
+        function redirectToDownloads(items) {
+            const params = new URLSearchParams();
+            params.set('items', JSON.stringify(items));
+            params.set('success', 'true');
+            params.set('demo', 'true');
+            params.set('timestamp', Date.now());
+            
+            window.location.href = `descarga.html?${params.toString()}`;
+        }
+
+        // Agregar un poco de interactividad
+        document.querySelectorAll('.demo-btn').forEach(btn => {
+            btn.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-2px)';
+            });
+            
+            btn.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html> 

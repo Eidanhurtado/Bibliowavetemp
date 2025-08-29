@@ -1,0 +1,17 @@
+{
+  "name": "ebooks-landing-page",
+  "version": "1.0.0",
+  "description": "Landing page para venta de e-books con Stripe",
+  "main": "index.html",
+  "scripts": {
+    "build": "echo 'Static site, no build needed'",
+    "start": "netlify dev"
+  },
+  "dependencies": {
+    "stripe": "^14.12.0"
+  },
+  "devDependencies": {},
+  "keywords": ["ebooks", "stripe", "payments", "landing-page", "netlify"],
+  "author": "Tu Nombre",
+  "license": "MIT"
+} 
